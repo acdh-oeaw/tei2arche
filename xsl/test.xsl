@@ -141,8 +141,8 @@
                 <script type="text/javascript" src="../static/js/arche_api_searchText.js"/>
                 <script type="text/javascript" src="../static/js/n3_parsing_arche_metadata.js"/>
                 <script type="text/javascript" src="../static/js/n3_parsing_arche_new.js"/>
-                <script type="text/javascript" src="../static/js/saxon-js/SaxonJS2.rt.js"/>
-                <script type="text/javascript" src="../static/js/saxon-js-register.js"/>  
+                <!-- <script type="text/javascript" src="../static/js/saxon-js/SaxonJS2.rt.js"/>
+                <script type="text/javascript" src="../static/js/saxon-js-register.js"/>   -->
             </body>
         </html>        
     </xsl:template>

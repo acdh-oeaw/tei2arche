@@ -17,15 +17,7 @@ The following project stylesheets were created with this repostitory:
 
 ## Getting Started
 
-Download this repository as Zip
-or
-```
-git clone git@gitlab.com:acdh-oeaw/tei2arche.git
-```
-or
-```
-git clone https://gitlab.com/acdh-oeaw/tei2arche.git
-```
+Download as Zip, clone or fork this repository.
 
 Run `script.sh` in your terminal to create a copy of test.xsl and /test_project.
 The script will prompt you to enter a project name which will be used as name of the output files. 
@@ -101,7 +93,3 @@ Feel free to explore the other projects and their projects specific xsl files. T
 
 Stylesheet templates are availabile in the static/css folder. Project specific css should be created within the main xsl template e.g. test.xsl.
 
-## Docker
-
-`docker image build -t tei2arche:latest .`
-`docker run --rm --name tei2arche -p 8080:80 tei2arche:latest`

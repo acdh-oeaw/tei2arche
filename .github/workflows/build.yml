@@ -16,11 +16,3 @@ jobs:
         run: |
           docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}" 
           docker push tei2arche:latest
-  rancher:
-    needs: push_to_registry
-    name: Deploy to rancher
-    runs-on: ubuntu-latest
-    steps:
-      - name: Rancher Deploy Action
-        run: |
-          curl  --request POST 'https://rancher.acdh-dev.oeaw.ac.at/p/c-zdbh8:p-xvw82/workload/deployment:tei4arche:latest?action=redeploy' --header 'Accept: application/json' --header 'Authorization: Bearer ${{ secrets.RANCHER_BARER_TOKEN }}'

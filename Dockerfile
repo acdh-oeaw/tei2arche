@@ -2,6 +2,6 @@ FROM nginx
 RUN apt-get update -y && apt-get upgrade -y && apt-get install apache2-utils -y
 COPY . /usr/share/nginx/html/data
 RUN find /usr/share/nginx/html/data/xsl/ -maxdepth 1 -type f -name "*.xsl" -print0 | xargs -0 sed -i -e 's@<xsl:import href="@<xsl:import href="https://tei4arche.acdh-dev.oeaw.ac.at/xsl/@g' && find /usr/share/nginx/html/data/xsl/template_imports/ -maxdepth 1 -type f -name "*.xsl" -print0 | xargs -0 sed -i -e 's@<xsl:import href="@<xsl:import href="https://tei4arche.acdh-dev.oeaw.ac.at/xsl/template_imports/@g' && find /usr/share/nginx/html/data/xsl/ -type f -name "*.xsl"  -print0 | xargs -0 sed -i -e 's@href="../static/@href="https://tei4arche.acdh-dev.oeaw.ac.at/static/@g' && find /usr/share/nginx/html/data/xsl/ -type f -name "*.xsl"  -print0 | xargs -0 sed -i -e 's@<script type="text/javascript" src="../@<script type="text/javascript" src="https://tei4arche.acdh-dev.oeaw.ac.at/@g'
-RUN rm /usr/share/nginx/html/data/default.conf && rm /usr/share/nginx/html/data/Dockerfile && rm /usr/share/nginx/html/data/README.md && rm -rf /usr/share/nginx/html/data/tei && rm /usr/share/nginx/html/data/tei2arche.xpr 
+RUN rm /usr/share/nginx/html/data/default.conf && rm /usr/share/nginx/html/data/Dockerfile && rm /usr/share/nginx/html/data/README.md && rm -rf /usr/share/nginx/html/data/tei && rm /usr/share/nginx/html/data/tei2arche_github.xpr 
 # RUN htpasswd -bc /etc/nginx/conf.d/.passwd $BASIC_AUTH_USERNAME $BASIC_AUTH_PASSWORD
 COPY ./default.conf /etc/nginx/conf.d/default.conf

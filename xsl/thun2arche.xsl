@@ -8,6 +8,7 @@
     
     <!-- ########### fundament ########### -->
     <xsl:import href="template_imports/add_footer_to_body.xsl"/>
+    <xsl:import href="template_imports/tei-geo.xsl"/>
     
     <!-- ########### content metadata ########### -->
     <xsl:import href="template_imports/add_modal-metadata.xsl"/>
@@ -32,7 +33,7 @@
     <xsl:param name="header-nav-item-info">true</xsl:param>
 
     <!-- ########### scripts ########### -->
-    <xsl:import href="template_imports/add_script_for_base_datatable.xsl"/>
+    <xsl:import href="template_imports/add_script_for_datatable_and_leaflet.xsl"/>
     
     <!-- ############################################## -->
     <!-- ########### project specific imports ######### -->
@@ -42,11 +43,10 @@
     <xsl:import href="arche_templates/root_col.xsl"/>
     <xsl:import href="thun/navbar-links.xsl"/>
     <xsl:import href="thun/content_block.xsl"/>
-    <xsl:import href="thun/content_block_project.xsl"/>
-    
-    <!--<xsl:import href="thun/content_block_listorg.xsl"/>
+    <xsl:import href="thun/content_block_project.xsl"/>    
+    <xsl:import href="thun/content_block_listorg.xsl"/>
     <xsl:import href="thun/content_block_listperson.xsl"/>
-    <xsl:import href="thun/content_block_listplace.xsl"/>-->
+    <xsl:import href="thun/content_block_listplace.xsl"/>
     
     <!-- ########### parameters ########### -->
     <xsl:param name="document">
@@ -185,11 +185,11 @@
                             
                             <xsl:call-template name="cards-project"/>     
                             
-                            <!--<xsl:call-template name="cards-persons"/>  
+                            <xsl:call-template name="cards-persons"/>  
                             
                             <xsl:call-template name="cards-orgs"/>  
                             
-                            <xsl:call-template name="cards-places"/> -->
+                            <xsl:call-template name="cards-places"/> 
                             
                         </div><!-- bootstrap end -->
                         <div class="container fade">
@@ -206,15 +206,15 @@
                     <xsl:call-template name="fundament-footer"/>
                     
                 </div><!-- hfeed site end -->
-                <xsl:call-template name="datatable-base"/>
+                <xsl:call-template name="dataTable-base-leaflet"/>
                 <!-- ****************** static scripts ****************** -->                
                 <script type="text/javascript" src="../static/js/change_color_theme.js"/>
                 <script type="text/javascript" src="../static/js/language-switcher-generic.js"/>                 
                 <script type="text/javascript" src="../static/js/n3_parsing_arche.js"/> 
                 <script type="text/javascript" src="../static/js/arche_api_searchText.js"/>
                 <script type="text/javascript" src="../static/js/n3_parsing_arche_metadata.js"/>
-                <!--<script type="text/javascript" src="../static/js/saxon-js/SaxonJS2.rt.js"/>
-                <script type="text/javascript" src="../static/js/saxon-js-register.js"/>-->
+                <script type="text/javascript" src="../static/js/saxon-js/SaxonJS2.rt.js"/>
+                <script type="text/javascript" src="../static/js/saxon-js-register.js"/>
             </body>
         </html>        
     </xsl:template>

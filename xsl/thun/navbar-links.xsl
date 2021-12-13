@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:foo="foo.com" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/terms/" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:sparql="http://www.w3.org/2005/sparql-results#" xmlns:my="http://test.org/" exclude-result-prefixes="tei" version="2.0">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:foo="foo.com" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:my="http://test.org/" exclude-result-prefixes="tei my xs xlink foo" version="2.0">
     <xsl:output encoding="UTF-8" media-type="text/html" method="html" version="5.0" indent="yes"/>
     
     <doc xmlns="http://www.oxygenxml.com/ns/doc/xsl">
@@ -12,12 +12,8 @@
     </doc>
     
     <xsl:param name="transform"/>
-    <xsl:param name="arche_child_col_url"/>
     
     <xsl:template name="navbar-links">
-        <xsl:variable name="transform-person"><xsl:value-of select="concat('https://id.acdh.oeaw.ac.at/thun/indices/listperson.xml', $transform)"/></xsl:variable>
-        <xsl:variable name="transform-places"><xsl:value-of select="concat('https://id.acdh.oeaw.ac.at/thun/indices/listplace.xml', $transform)"/></xsl:variable>
-        <xsl:variable name="transform-org"><xsl:value-of select="concat('https://id.acdh.oeaw.ac.at/thun/indices/listorg.xml', $transform)"/></xsl:variable>
         <li class="nav-item">
             <a title="Dokument" href="#home" data-toggle="tab" class="nav-link active body_translations">Dokument</a>
         </li>
@@ -40,23 +36,25 @@
                     </a>                                                               
                 </li>
                 <li class="nav-item">
-                    <a title="Gesamter Bestand" class="nav-link body_translations" id="ajax_request" tabindex="1" href="#">Gesamter Bestand</a>                                                                                           
+                    <a title="Gesamter Bestand" class="nav-link body_translations" id="ajax_request" onclick="downloadArcheTopCol()" tabindex="1" href="#">Gesamter Bestand</a>                                                                                           
                 </li>
             </ul>                                       
         </li>
-        <li class="dropdown nav-item">                            
-            <a title="Register" class="nav-link bi bi-sliders dropdown-toggle body_translations" data-toggle="dropdown" href="#">Register</a>
-            <ul class="dropdown-menu pull-left navbar-dark bg-dark" role="menu" aria-labelledby="dropdownMenu">                                        
-                <li class="nav-item">
-                    <a title="Orte" class="nav-link body_translations" tabindex="1"><xsl:attribute name="href"><xsl:value-of select="$transform-places"/></xsl:attribute>Orte</a>                                                                            
-                </li>
-                <li class="nav-item">
-                    <a title="Personen" class="nav-link body_translations" tabindex="1"><xsl:attribute name="href"><xsl:value-of select="$transform-person"/></xsl:attribute>Personen</a>                                                                            
-                </li>
-                <li class="nav-item">
-                    <a title="Institutionen" class="nav-link body_translations" tabindex="1"><xsl:attribute name="href"><xsl:value-of select="$transform-org"/></xsl:attribute>Institutionen</a>                                                                        
-                </li>
-            </ul>                                       
+        <li class="dropdown nav-item">                              
+            <li class="dropdown nav-item">                            
+                <a title="Register" class="nav-link bi bi-sliders dropdown-toggle body_translations" data-toggle="dropdown" href="#">Register</a>
+                <ul class="dropdown-menu pull-left navbar-dark bg-dark" role="menu" aria-labelledby="dropdownMenu">                                        
+                    <li class="nav-item">
+                        <a href="#" title="Personen" class="nav-link body_translations" tabindex="1" onclick="loadRegister('tei-listPerson', 'https://arche.acdh.oeaw.ac.at/api/109127', 'listperson')">Persons</a>                                                                            
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" title="Orte" class="nav-link body_translations" tabindex="1" onclick="loadRegister('tei-listPlace', 'https://arche.acdh.oeaw.ac.at/api/109128', 'listplace')">Orte</a>                                                                                
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" title="Institutionen" class="nav-link body_translations" tabindex="1" onclick="loadRegister('tei-listOrg', 'https://arche.acdh.oeaw.ac.at/api/109126', 'listorg')">Institutionen</a>                                                                            
+                    </li>
+                </ul>                                       
+            </li>
         </li>
     </xsl:template>
 

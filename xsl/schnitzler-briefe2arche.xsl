@@ -61,6 +61,7 @@
     <xsl:import href="schnitzler-briefe2arche/content_block_listorg.xsl"/>
     <xsl:import href="schnitzler-briefe2arche/content_block_listperson.xsl"/>
     <xsl:import href="schnitzler-briefe2arche/content_block_listplace.xsl"/>
+    <xsl:import href="schnitzler-briefe2arche/content_block_listbibl.xsl"/>
     
     <xsl:param name="app-name">tei2arche</xsl:param>
     <xsl:param name="document" select="tei:TEI/@xml:id"/>    
@@ -127,7 +128,9 @@
                             
                             <xsl:call-template name="cards-orgs"/>  
                             
-                            <xsl:call-template name="cards-places"/>  
+                            <xsl:call-template name="cards-places"/>
+                            
+                            <xsl:call-template name="cards-bibl"/> 
                             
                         </div><!-- bootstrap end -->
                         <div class="fade">

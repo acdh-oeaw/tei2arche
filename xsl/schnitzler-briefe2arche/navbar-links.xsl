@@ -53,6 +53,9 @@
                     <li class="nav-item">
                         <a href="#" title="Institutionen" class="nav-link body_translations" tabindex="1" onclick="loadRegister('tei-listOrg', 'https://arche.acdh.oeaw.ac.at/api/143596', 'listorg')">Institutionen</a>                                                                            
                     </li>
+                    <li class="nav-item">
+                        <a href="#" title="Bibliographie" class="nav-link body_translations" tabindex="1" onclick="loadRegister('tei-listBibl', 'https://arche.acdh.oeaw.ac.at/api/143599', 'listbibl')">Bibliographie</a>                                                                            
+                    </li>
                 </ul>                                       
             </li>
         </li>

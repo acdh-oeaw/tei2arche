@@ -202,7 +202,8 @@ table{
  /* leaflet map container */
 #leaflet-map-one {
     min-height: 400px; 
-    min-width: 100% !important; 
+    min-width: 100% !important;
+    margin-bottom: 2em;
 } 
 #leaflet-map-two {
     min-height: 400px;

@@ -10,8 +10,6 @@
     version="3.0"
     >
     
-    <xsl:import href="/home/daniel/Documents/tei2arche/xsl/template_imports/add_modal_custom.xsl"/>
-    
     <xsl:template match="/">
         <xsl:result-document href="#listperson-input" method="ixsl:replace-content" expand-text="true">
             <xsl:apply-templates select="//tei:listPerson"/>           

@@ -28,7 +28,7 @@ jobs:
           commit_message: adding sef.json files to repository
           branch: master
           skip_dirty_check: true    
-          skip_fetch: true  
+          skip_fetch: true
       # - name: docker build
       #   run: docker image build -t tei2arche:latest .
       # - name: docker push

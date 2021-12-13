@@ -14,7 +14,7 @@ jobs:
         uses: actions/setup-node@v2.5.0
         with:
           node-version: '16'
-        run: |
+      - run: |
           npm install -g xslt3
           for file in xsl/template_imports_sef_json/*.xsl; do
             filename=$(echo $file | sed -e "s_.xsl__g")
@@ -22,6 +22,7 @@ jobs:
             echo "$filename.sef.json created"
           done
           echo "all files created"
+      - uses: actions/checkout@v2
       - name: docker build
         run: docker image build -t tei2arche:latest .
       - name: docker push

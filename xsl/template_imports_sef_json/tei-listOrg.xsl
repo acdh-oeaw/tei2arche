@@ -83,7 +83,7 @@
                                                             <xsl:attribute name="href">
                                                                 <xsl:value-of select="."/>
                                                             </xsl:attribute>
-                                                            <xsl:apply-templates/>                                                              
+                                                            <xsl:apply-templates/>                                                
                                                         </a>
                                                     </li>
                                                 </ul>

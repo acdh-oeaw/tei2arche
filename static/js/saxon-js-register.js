@@ -18,7 +18,7 @@ function loadRegister(xslt, xml, element) {
                                     </div>`;
         $('#single-wrapper').prepend(create_spinner);
         SaxonJS.transform({
-            stylesheetLocation: `../xsl/template_imports/${xslt}.sef.json`,
+            stylesheetLocation: `https://tei4arche.acdh-dev.oeaw.ac.at/xsl/template_imports_sef_json/${xslt}.sef.json`,
             sourceLocation: xml,
             destination: "serialized"
         }, "async")

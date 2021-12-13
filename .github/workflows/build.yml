@@ -5,11 +5,23 @@ on:
     types: [published]
 
 jobs:
-  push_to_registry:
+  build_docker_image:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Setup Node.js environment, install xslt3 and transform xsl to sef.json
+        uses: actions/setup-node@v2.5.0
+        with:
+          node-version: '16'
+        run: |
+          npm install -g xslt3
+          for file in xsl/template_imports_sef_json/*.xsl; do
+            filename=$(echo $file | sed -e "s_.xsl__g")
+            xslt3 -xsl:$file -export:$filename.sef.json -t
+            echo "$filename.sef.json created"
+          done
+          echo "all files created"
       - name: docker build
         run: docker image build -t tei2arche:latest .
       - name: docker push

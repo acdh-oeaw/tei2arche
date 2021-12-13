@@ -4,25 +4,30 @@ on:
   push:
 
 jobs:
-  build_docker_image:
-    name: Push Docker image to Docker Hub
+  xslt3_transformation:
+    name: transform xsl to sef.json
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.5.0
+      - name: setup nodejs
+        uses: actions/setup-node@v2.5.0
         with:
           node-version: '16'
-      - name: install xslt3
-        run: |
+      - run: |
           npm install -g xslt3
-      - name: run xsl to sef.json transformation
-        run: |
+      - run: |
           for file in xsl/template_imports_sef_json/*.xsl; do
             filename=$(echo $file | sed -e "s_.xsl__g")
             xslt3 -xsl:$file -export:$filename.sef.json -t
             echo "$filename.sef.json created"
           done
           echo "all files created"
+
+  build_docker_image:
+    name: Push Docker image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       - name: docker build
         run: docker image build -t tei2arche:latest .
       - name: docker push

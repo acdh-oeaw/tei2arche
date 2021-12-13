@@ -66,13 +66,13 @@
                                                     </xsl:attribute>
                                                     <xsl:value-of select="./tei:persName/tei:surname"/>                                  
                                                 </a>
-                                                <xsl:call-template name="modal-custom">
+                                                <!--<xsl:call-template name="modal-custom">
                                                     <xsl:with-param name="ref-ID" select="@xml:id"/>
                                                     <xsl:with-param name="transform" select="$transform"/>
                                                     <xsl:with-param name="title">
                                                         <xsl:value-of select="concat(./tei:persName/tei:forename,' ',./tei:persName/tei:surname,' ',./tei:persName/tei:roleName)"/> 
                                                     </xsl:with-param>
-                                                </xsl:call-template>                            
+                                                </xsl:call-template>   -->                         
                                             </td>
                                         </xsl:when>
                                         <xsl:otherwise>

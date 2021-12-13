@@ -10,6 +10,9 @@
     version="3.0"
     >
     
+    <xsl:import href="../template_imports/add_modal_custom.xsl"/>
+    <xsl:import href="../template_imports/tei-geo.xsl"/>
+    
     <xsl:template match="/">
         <xsl:result-document href="#listplace-input" method="ixsl:replace-content" expand-text="true">
             <xsl:apply-templates select="//tei:listPlace"/>           
@@ -17,8 +20,10 @@
     </xsl:template>
     
     <xsl:template match="tei:listPlace">
-        <xsl:param name="transform"></xsl:param>
-        <div class="table-responsive"> 
+        <xsl:param name="transform"></xsl:param>        
+        <!-- ****************** adding a container for maps ****************** -->
+        <xsl:call-template name="add_map_container"/>
+        <div class="saxon-request table-responsive"> 
             <table class="table table-striped table-hover" id="listplace">
                 <thead>
                     <tr>
@@ -66,7 +71,7 @@
                                                         </xsl:otherwise>
                                                     </xsl:choose>                                    
                                                 </a>
-                                                <!--<xsl:call-template name="modal-custom">
+                                                <xsl:call-template name="modal-custom">
                                                     <xsl:with-param name="ref-ID" select="@xml:id"/>
                                                     <xsl:with-param name="transform" select="$transform"/>
                                                     <xsl:with-param name="title">
@@ -79,7 +84,7 @@
                                                             </xsl:otherwise>
                                                         </xsl:choose>
                                                     </xsl:with-param>
-                                                </xsl:call-template>-->  
+                                                </xsl:call-template>  
                                             </xsl:when>
                                             <xsl:otherwise>
                                                 <xsl:value-of select="./tei:placeName"/>

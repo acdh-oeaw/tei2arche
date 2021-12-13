@@ -10,6 +10,8 @@
     version="3.0"
     >
     
+    <xsl:import href="../template_imports/add_modal_custom.xsl"/>
+    
     <xsl:template match="/">
         <xsl:result-document href="#listperson-input" method="ixsl:replace-content" expand-text="true">
             <xsl:apply-templates select="//tei:listPerson"/>           
@@ -18,7 +20,7 @@
     
     <xsl:template match="tei:listPerson">
         <xsl:param name="transform"></xsl:param>
-        <div class="table-responsive">     
+        <div class="saxon-request table-responsive">     
             <table class="table table-striped table-hover" id="listperson">
                 <thead>
                     <tr>
@@ -66,13 +68,13 @@
                                                     </xsl:attribute>
                                                     <xsl:value-of select="./tei:persName/tei:surname"/>                                  
                                                 </a>
-                                                <!--<xsl:call-template name="modal-custom">
+                                                <xsl:call-template name="modal-custom">
                                                     <xsl:with-param name="ref-ID" select="@xml:id"/>
                                                     <xsl:with-param name="transform" select="$transform"/>
                                                     <xsl:with-param name="title">
                                                         <xsl:value-of select="concat(./tei:persName/tei:forename,' ',./tei:persName/tei:surname,' ',./tei:persName/tei:roleName)"/> 
                                                     </xsl:with-param>
-                                                </xsl:call-template>   -->                         
+                                                </xsl:call-template>                            
                                             </td>
                                         </xsl:when>
                                         <xsl:otherwise>

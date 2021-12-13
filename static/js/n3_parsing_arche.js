@@ -5,6 +5,7 @@ $("#ajax_request").on("click", function() {
     $("#home").removeClass("active").addClass("fade");
     $("#search").removeClass("active").addClass("fade");
     $("#edition").removeClass("fade").addClass("active");
+    $("#listplace-tab, #listorg-tab, #listperson-tab").css("display", "none");
     $(".nav-link").removeClass("active show");
     var project_title = $('#project-xsl').text().toLowerCase().replace('\\s','_');
     // building the html table

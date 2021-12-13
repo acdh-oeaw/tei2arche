@@ -9,7 +9,7 @@ function loadRegister(xslt, xml, element) {
     $("#listorg-tab").css("display", "none");
     $("#listperson-tab").css("display", "none");
     $(".nav-link").removeClass("active show");
-    $(".table-responsive").remove();
+    $(".saxon-request").remove();
     if ($(`#${element}`).length == 0) {
         var create_spinner =    `<div id="loader_wrapper" class="text-center">
                                         <div class="spinner-border active" role="status"
@@ -18,7 +18,7 @@ function loadRegister(xslt, xml, element) {
                                     </div>`;
         $('#single-wrapper').prepend(create_spinner);
         SaxonJS.transform({
-            stylesheetLocation: `https://tei4arche.acdh-dev.oeaw.ac.at/xsl/template_imports_sef_json/${xslt}.sef.json`,
+            stylesheetLocation: `../xsl/template_imports_sef_json/${xslt}.sef.json`, // https://tei4arche.acdh-dev.oeaw.ac.at
             sourceLocation: xml,
             destination: "serialized"
         }, "async")
@@ -32,9 +32,9 @@ function loadRegister(xslt, xml, element) {
     }
 }
 
-function buildDataTable(html_id, pageLength) {
-    if (document.getElementById(html_id + "_wrapper") === null) {
-        $('#' + html_id).DataTable({
+function buildDataTable(table_id, pageLength) {
+    if (document.getElementById(table_id + "_wrapper") === null) {  
+        var tableOne = $('#' + table_id).DataTable({
             "language": {
                 "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/German.json"
             },
@@ -46,5 +46,83 @@ function buildDataTable(html_id, pageLength) {
             "pageLength": pageLength,
             keepConditions: true
         });
+        if ($('#listplace')) {
+            buildLeaflet(tableOne);
+        }
     }
+}
+
+function buildLeaflet(tableOne) {                
+    $(document).ready(function() {                
+        // display map container
+        $('#leaflet-map-one').css({'display': 'flex'});
+        // leaflet map:
+        var latStart = document.body.querySelectorAll('.map-coordinates')[0].getAttribute('lat');
+        var longStart = document.body.querySelectorAll('.map-coordinates')[0].getAttribute('long');
+        var mymap = L.map('leaflet-map-one').setView([latStart,longStart], 2);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+            maxZoom: 18,
+            zIndex: 1
+        }).addTo(mymap);
+        
+        //create labels for each coordinate existing lat long coordinate
+        var markers = L.markerClusterGroup();
+        var markersStart = L.markerClusterGroup();
+        var coordinatesStart = getCoordinates();
+        mymap.addLayer(markers);
+        try {
+            mymap.fitBounds(markers.getBounds());
+        } catch (err) {
+            console.log(err);
+        }
+                     
+        // // variable id #tableOne must match table id in html
+        // var tableOne = $('#' + table_id).DataTable({
+        //     "language": {
+        //         "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/German.json"
+        //         },
+        //     dom: 'fpBirtp',
+        //     buttons:['copy', 'excel', 'pdf'],
+        //     "lengthMenu":[25, 50, 75, 100, "All"],
+        //     responsive: true,
+        //     orderCellsTop: true,
+        //     "pageLength": pageLength,
+        //     keepConditions: true
+        // });
+        
+        tableOne.on('search.dt', function(){
+            markers.clearLayers();
+            var currentLayer = getCoordinates();
+            mymap.addLayer(markers);
+            try {
+                mymap.fitBounds(markers.getBounds());
+            } catch (err) {
+                console.log(err);
+            }
+    
+        });
+        
+        tableOne.on('page.dt', function(){
+            markers.clearLayers();
+            var currentLayer = getCoordinates();
+            mymap.addLayer(markers);
+            try {
+                mymap.fitBounds(markers.getBounds());
+            } catch (err) {
+                console.log(err);
+            }
+        });
+            
+        function getCoordinates(){
+            document.body.querySelectorAll('.map-coordinates').forEach(function(node){
+                var lat = node.getAttribute('lat');
+                var long = node.getAttribute('long');
+                var place = node.getAttribute('subtitle');
+                markers.addLayer(L.marker([lat,long]).bindPopup(place));
+                markersStart.addLayer(L.marker([lat,long]).bindPopup(place));
+            });
+        };
+    });
 }

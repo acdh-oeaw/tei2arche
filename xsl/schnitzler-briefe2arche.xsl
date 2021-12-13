@@ -19,6 +19,7 @@
     
     <!-- ########### fundament (footer/navigation) ########### -->
     <xsl:import href="template_imports/add_footer_to_body.xsl"/>
+    <xsl:import href="template_imports/tei-geo.xsl"/>
     
     <!-- ########### general imports ########### -->    
     <xsl:import href="template_imports/add_modal-metadata.xsl"/>
@@ -104,7 +105,7 @@
             <body>
                 <div class="hfeed site" id="page">
                     <!-- ******************* The Navbar Area ******************* -->                    
-                    <xsl:call-template name="navbar"/>
+                    <xsl:call-template name="navbar"/>                    
                     
                     <div class="wrapper" id="single-wrapper">                        
                         
@@ -156,7 +157,7 @@
                 <!-- ****************** loads DataTable and Leaflet css and js via cdn ****************** --> 
                 <xsl:call-template name="dataTable-base-leaflet"/>
                 <xsl:call-template name="OSD"/>
-                <!-- ****************** static scripts ****************** -->         
+                <!-- ****************** static scripts ****************** -->  
                 <script type="text/javascript" src="../static/js/osd.js"/>
                 <script type="text/javascript" src="../static/js/handle_links_inside_bootstrap_tabs.js"/>
                 <script type="text/javascript" src="../static/js/change_color_theme.js"/>

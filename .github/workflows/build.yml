@@ -21,7 +21,6 @@ jobs:
             echo "$filename.sef.json created"
           done
           echo "all files created"
-      - uses: actions/checkout@v2
       - name: docker build
         run: docker image build -t tei2arche:latest .
       - name: docker push

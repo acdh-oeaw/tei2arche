@@ -30,8 +30,8 @@ jobs:
           skip_dirty_check: true    
           skip_fetch: true
       - name: docker build
-        run: docker image build -t acdhch/tei2arche:latest .
+        run: docker image build -t acdhch/tei2arche .
       - name: docker push
         run: |
           docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}" 
-          docker push tei2arche:latest   
+          docker push acdhch/tei2arche   

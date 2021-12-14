@@ -33,7 +33,7 @@ jobs:
       - name: process data
         run: |
           mkdir -p ./html
-          cp README.md ./html/index.md
+          cp index.html ./html/index.html
           cp -r ./static ./html/static
           cp -r ./tei ./html/tei
           cp -r ./xsl ./html/xsl

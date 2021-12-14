@@ -92,3 +92,10 @@ Feel free to explore the other projects and their projects specific xsl files. T
 ## CSS 
 
 Stylesheet templates are availabile in the static/css folder. Project specific css should be created within the main xsl template e.g. test.xsl.
+
+
+# Docker
+
+to run the service use 
+* `$ docker run --name someawesomename -p 8080:80 acdhch/tei2arche`
+* go to http://127.0.0.1:8080/

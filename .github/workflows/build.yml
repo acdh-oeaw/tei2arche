@@ -23,13 +23,6 @@ jobs:
             echo "$filename.sef.json created"
           done
           echo "all files created"
-      - name: pushing files to repository
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: adding sef.json files to repository
-          branch: master
-          skip_dirty_check: true    
-          skip_fetch: true
       - name: process data
         run: |
           mkdir -p ./html

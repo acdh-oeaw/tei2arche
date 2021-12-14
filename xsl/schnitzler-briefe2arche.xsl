@@ -15,7 +15,8 @@
     
     <!-- ########### html head ########### -->
     <xsl:import href="template_imports/add_base_scripts_and_styles_to_head.xsl"/>
-    <xsl:import href="template_imports/add_metadata_to_head.xsl"/>   
+    <xsl:import href="template_imports/add_metadata_to_head.xsl"/>
+    <!-- some change -->
     
     <!-- ########### fundament (footer/navigation) ########### -->
     <xsl:import href="template_imports/add_footer_to_body.xsl"/>

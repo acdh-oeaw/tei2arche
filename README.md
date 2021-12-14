@@ -92,5 +92,3 @@ Feel free to explore the other projects and their projects specific xsl files. T
 ## CSS 
 
 Stylesheet templates are availabile in the static/css folder. Project specific css should be created within the main xsl template e.g. test.xsl.
-
-minor

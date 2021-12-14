@@ -10,19 +10,6 @@ jobs:
     steps:
       - name: Perfom Checkout
         uses: actions/checkout@v2
-      - name: setup nodejs
-        uses: actions/setup-node@v2.5.0
-        with:
-          node-version: '16'
-      - run: |
-          npm install -g xslt3
-      - run: |
-          for file in xsl/template_imports_sef_json/*.xsl; do
-            filename=$(echo $file | sed -e "s_.xsl__g")
-            xslt3 -xsl:$file -export:$filename.sef.json -nogo
-            echo "$filename.sef.json created"
-          done
-          echo "all files created"
       - name: process data
         run: |
           mkdir -p ./html

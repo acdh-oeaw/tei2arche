@@ -15,13 +15,13 @@
     
     <xsl:template name="navbar-links">
         <li class="nav-item">
-            <a title="Dokument" href="#home" data-toggle="tab" class="nav-link active body_translations">Dokument</a>
+            <a title="Dokument" href="#home" data-toggle="tab" class="nav-link active body_translations" onclick="$('#listplace-tab, #listorg-tab, #listperson-tab, #listbibl-tab').css('display','none');">Dokument</a>
         </li>
         <li class="nav-item">
-            <a title="Über das Projekt" href="#about" data-toggle="tab" class="nav-link body_translations" id="load_arche_metadata">Über das Projekt</a>
+            <a title="Über das Projekt" href="#about" data-toggle="tab" class="nav-link body_translations" id="load_arche_metadata" onclick="$('#listplace-tab, #listorg-tab, #listperson-tab, #listbibl-tab').css('display','none');">Über das Projekt</a>
         </li>
         <li class="nav-item">
-            <a title="DATEN-Repräsentation" href="#transform" data-toggle="tab" class="nav-link body_translations">DATEN-Repräsentation</a>
+            <a title="DATEN-Repräsentation" href="#transform" data-toggle="tab" class="nav-link body_translations" onclick="$('#listplace-tab, #listorg-tab, #listperson-tab, #listbibl-tab').css('display','none');">DATEN-Repräsentation</a>
         </li>
         <li class="dropdown nav-item">                        
             <a title="Bestände" class="nav-link bi bi-sliders dropdown-toggle body_translations" data-toggle="dropdown" href="#">Bestände</a>                               
@@ -36,7 +36,7 @@
                     </a>                                                               
                 </li>
                 <li class="nav-item">
-                    <a title="Gesamter Bestand" class="nav-link body_translations" id="ajax_request" onclick="downloadArcheTopCol()" tabindex="1" href="#">Gesamter Bestand</a>                                                                                           
+                    <a title="Gesamter Bestand" class="nav-link body_translations" id="ajax_request" tabindex="1" href="#" onclick="$('#listplace-tab, #listorg-tab, #listperson-tab, #listbibl-tab').css('display','none');">Gesamter Bestand</a>                                                                                           
                 </li>
             </ul>                                       
         </li>

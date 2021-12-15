@@ -10,6 +10,26 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
+                                    <String>tei/schnitzler-briefe-sample_3.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>schnitzler-briefe</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioStorageLocations">
+                                    <list>
+                                        <Byte>2</Byte>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
                                     <String>tei/thun1_tei.xml</String>
                                 </field>
                                 <field name="scenarioIds">
@@ -78,7 +98,7 @@
                                     <null/>
                                 </field>
                                 <field name="name">
-                                    <String>test</String>
+                                    <String>schnitzler-briefe</String>
                                 </field>
                                 <field name="baseURL">
                                     <String></String>
@@ -96,7 +116,7 @@
                                     <String></String>
                                 </field>
                                 <field name="inputXSLURL">
-                                    <String>${pdu}/xsl/test.xsl</String>
+                                    <String>${pdu}/xsl/schnitzler-briefe2arche.xsl</String>
                                 </field>
                                 <field name="inputXMLURL">
                                     <String>${currentFileURL}</String>
@@ -161,7 +181,7 @@
                                     <null/>
                                 </field>
                                 <field name="name">
-                                    <String>schnitzler-briefe</String>
+                                    <String>test</String>
                                 </field>
                                 <field name="baseURL">
                                     <String></String>
@@ -179,7 +199,7 @@
                                     <String></String>
                                 </field>
                                 <field name="inputXSLURL">
-                                    <String>${pdu}/xsl/schnitzler-briefe2arche.xsl</String>
+                                    <String>${pdu}/xsl/test.xsl</String>
                                 </field>
                                 <field name="inputXMLURL">
                                     <String>${currentFileURL}</String>

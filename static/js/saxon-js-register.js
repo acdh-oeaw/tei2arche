@@ -5,9 +5,7 @@ function loadRegister(xslt, xml, element) {
     $("#home").removeClass("active").addClass("fade");
     $("#search").removeClass("active").addClass("fade");
     $("#edition").removeClass("active").addClass("fade");
-    $("#listplace-tab").css("display", "none");
-    $("#listorg-tab").css("display", "none");
-    $("#listperson-tab").css("display", "none");
+    $('#listplace-tab, #listorg-tab, #listperson-tab, #listbibl-tab').css('display','none');
     $(".nav-link").removeClass("active show");
     $(".saxon-request").remove();
     if ($(`#${element}`).length == 0) {
@@ -18,7 +16,7 @@ function loadRegister(xslt, xml, element) {
                                     </div>`;
         $('#single-wrapper').prepend(create_spinner);
         SaxonJS.transform({
-            stylesheetLocation: `../xsl/template_imports_sef_json/${xslt}.sef.json`, // https://tei4arche.acdh-dev.oeaw.ac.at
+            stylesheetLocation: `https://acdh-oeaw.github.io/tei2arche/xsl/template_imports_sef_json/${xslt}.sef.json`, // https://tei4arche.acdh-dev.oeaw.ac.at
             sourceLocation: xml,
             destination: "serialized"
         }, "async")

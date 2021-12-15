@@ -20,7 +20,6 @@
     
     <!-- ########### fundament (footer/navigation) ########### -->
     <xsl:import href="https://acdh-oeaw.github.io/tei2arche/xsl/template_imports/add_footer_to_body.xsl"/>
-    <xsl:import href="https://acdh-oeaw.github.io/tei2arche/xsl/template_imports/tei-geo.xsl"/>
     
     <!-- ########### general imports ########### -->    
     <xsl:import href="https://acdh-oeaw.github.io/tei2arche/xsl/template_imports/add_modal-metadata.xsl"/>
@@ -71,7 +70,7 @@
     <xsl:param name="project-xsl">schnitzler-briefe2arche.xsl</xsl:param><!-- add main xsl name with file-extention -->
     <xsl:param name="path2source"></xsl:param>
     <xsl:param name="tei-source" select="concat($baseURL,'/',$document)"/>    
-    <xsl:param name="image-url">https://arche-thumbnails.acdh.oeaw.ac.at/id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe?width=00</xsl:param>
+    <xsl:param name="image-url">https://arche-thumbnails.acdh.oeaw.ac.at/id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe?width=200</xsl:param>
     <xsl:param name="navbar-color">navbar-dark bg-dark</xsl:param>
     <xsl:param name="title" select="//tei:titleStmt/tei:title[@level='a']"/>
     <xsl:param name="arche_root_col_url">https://arche.acdh.oeaw.ac.at/api/140074</xsl:param>

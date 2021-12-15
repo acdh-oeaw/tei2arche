@@ -148,7 +148,7 @@
                         text-align: left;
                         font-size: 14px;
                         }
-                    .badge{
+                    .card-body .badge{
                         margin-left: 1em;
                         font-size: 16px;
                     }

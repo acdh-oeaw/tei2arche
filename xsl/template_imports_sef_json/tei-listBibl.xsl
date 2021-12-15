@@ -19,7 +19,7 @@
     </xsl:template>
     
     <xsl:template match="tei:listBibl">
-        <xsl:param name="transform"></xsl:param>
+        <xsl:param name="transform">?format=customTei2Html</xsl:param>
         <div class="saxon-request table-responsive">     
             <table class="table table-striped table-hover" id="listbibl">
                 <thead>

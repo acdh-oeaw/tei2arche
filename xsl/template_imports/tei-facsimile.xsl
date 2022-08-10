@@ -16,24 +16,24 @@
         <xsl:param name="url" select="$iiif"/>
         <xsl:for-each select="./tei:graphic">
             <xsl:choose>
-                <xsl:when test="contains($url,'grundbuecher')">
+                <xsl:when test="contains($url,'Grundbuch')">
                     <img class="tei-xml-images">
                         <xsl:attribute name="src">
-                            <xsl:value-of select="concat($url,replace(@url,'.jpg','/info.json'))"/>
+                            <xsl:value-of select="concat('$url', @url, '?format=iiif')"/>
                         </xsl:attribute>
                     </img>
                 </xsl:when>
                 <xsl:when test="contains($url,'schnitzler-briefe')">
                     <img class="tei-xml-images">
                         <xsl:attribute name="src">
-                            <xsl:value-of select="concat($url, @url, '/info.json')"/>
+                            <xsl:value-of select="concat($url, @url, '?format=iiif')"/>
                         </xsl:attribute>
                     </img>
                 </xsl:when>
                 <xsl:otherwise>
                     <img class="tei-xml-images">
                         <xsl:attribute name="src">
-                            <xsl:value-of select="@url"/>
+                            <xsl:value-of select="concat(@url, '?format=iiif')"/>
                         </xsl:attribute>
                     </img>
                 </xsl:otherwise>

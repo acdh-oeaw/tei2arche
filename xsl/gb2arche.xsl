@@ -77,7 +77,7 @@
         <xsl:value-of select="concat($baseURL,'/',$document)"/>
     </xsl:variable>
     <xsl:param name="entityID"/>
-    <xsl:param name="iiif">https://iiif.acdh.oeaw.ac.at/grundbuecher/</xsl:param>
+    <xsl:param name="iiif">https://id.acdh.oeaw.ac.at/grundbuecher-facs/</xsl:param>
     <xsl:param name="project-xsl">gb2arche.xsl</xsl:param>
     <xsl:param name="image-url">https://arche-thumbnails.acdh.oeaw.ac.at/id.acdh.oeaw.ac.at/grundbuecher?width=200</xsl:param>
     <xsl:param name="navbar-color">navbar-dark bg-dark</xsl:param>

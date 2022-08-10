@@ -52,7 +52,7 @@
                                     <xsl:for-each select="//tei:facsimile/tei:graphic">
                                         <a target="_blank">
                                             <xsl:attribute name="href">
-                                                <xsl:value-of select="concat($iiif, substring-before(@url,'.jpg'))"/>
+                                                <xsl:value-of select="concat($iiif, @url, '?format=iiif')"/>
                                             </xsl:attribute>
                                             <span style="color:red; padding:0.5em;">Bild in seperatem Fenster öffnen - </span>
                                         </a>

@@ -79,7 +79,7 @@
     <xsl:param name="next" select="//@next"/>
     <xsl:param name="prev" select ="//@prev"/>
     <xsl:param name="header-nav-item-info">true</xsl:param>
-    <xsl:param name="iiif">https://iiif.acdh.oeaw.ac.at/schnitzler-briefe/</xsl:param>
+    <xsl:param name="iiif">https://iiif.acdh-dev.oeaw.ac.at/iiif/images/schnitzler-briefe/</xsl:param>
     
     <!-- ######################################################### --> 
     <!-- ##################### html structure #################### --> 

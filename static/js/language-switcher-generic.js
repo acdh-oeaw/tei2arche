@@ -2,7 +2,7 @@
     // the hash value of the page 
     function changeLanguage(lang) { 
         location.hash = lang; 
-        location.reload(); 
+        location.reload();
     }    
 
 // Language definitions ALL
